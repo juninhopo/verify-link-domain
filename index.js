@@ -6,7 +6,7 @@ dotenv.config()
 
 // Limite de requisições para o Target
 // const limit = 1
-const limit = 10000
+const limit = 100000000000000
 
 // Configs Telegram
 const tokenTelegram = process.env.TOKENTELEGRAM
