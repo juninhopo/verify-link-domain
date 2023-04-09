@@ -2,50 +2,57 @@ import { error } from 'console'
 import fetch from 'node-fetch'
 import sleep from 'sleep'
 
-const limit = 999
+// Limite de requisições para o Target
+const limit = 99999999999
 
+// Função que realiza a requisição para o site
 async function newRequest(url) {
     try {
         const res = await fetch(url)
 
-        // sleep.msleep(150)
+        // sleep.msleep(300)
 
         console.log(`${url} -> ${res.status} -> ${res.statusText}`)
 
-        // console.log(res.message.code)
-
         if (res.status == 200 || res.status == 201) {
 
-            console.log(`res -> ${url}`)
-            console.log(`res - ${res.status}`)
+            console.log(`res -> ${url} ALERTA ALERTA ALERTA ALERTA ALERTA`)
+            console.log(`res - ${res.status} ALERTA ALERTA ALERTA ALERTA ALERTA`)
 
         }
 
     } catch (error) {
+        console.log('chegou no error')
         if (error.name === 'AbortError') {
             console.log('request was aborted');
         }
     }
 }
 
-for (let i = 0; i < limit; i++) {
+// Função que gera as palavras aleatorias
+function generateWords(sizeWord) {
+    var wordRandom = '';
 
-    function generateWords(sizeWord) {
-        var wordRandom = '';
+    // var caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var caracteres = 'abcdefghijklmnopqrstuvwxyz';
 
-        // var caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-        var caracteres = 'abcdefghijklmnopqrstuvwxyz';
-
-        for (var i = 0; i < sizeWord; i++) {
-            wordRandom += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
-        }
-
-        return wordRandom;
+    for (var i = 0; i < sizeWord; i++) {
+        wordRandom += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
     }
 
-    const subdomain = generateWords(8)
+    return wordRandom;
+}
 
-    const url = `https://www.youtube.com/${subdomain}`
+// For que deixa o codigo rodando
+for (let i = 1; i < limit; i++) {
 
-    newRequest(url)
+    console.log(`Tentativa ${i}`)
+
+    const subdomain = generateWords(5)
+
+    const urlTarget = 'https://www.okatech.dev/'
+
+    const url = `${urlTarget}${subdomain}`
+
+    await newRequest(url)
 }
