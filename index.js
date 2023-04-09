@@ -18,7 +18,6 @@ async function newRequest(url) {
 
             console.log(`res -> ${url} ALERTA ALERTA ALERTA ALERTA ALERTA`)
             console.log(`res - ${res.status} ALERTA ALERTA ALERTA ALERTA ALERTA`)
-
         }
 
     } catch (error) {
@@ -29,7 +28,7 @@ async function newRequest(url) {
     }
 }
 
-// Função que gera as palavras aleatorias
+// Função que gera as palavras aleatórias
 function generateWords(sizeWord) {
     var wordRandom = '';
 
@@ -43,10 +42,10 @@ function generateWords(sizeWord) {
     return wordRandom;
 }
 
-// For que deixa o codigo rodando
+// For que deixa o código rodando
 for (let i = 1; i < limit; i++) {
 
-    console.log(`Tentativa ${i}`)
+    console.log(`Tentativa Nº${i}`)
 
     const subdomain = generateWords(5)
 
