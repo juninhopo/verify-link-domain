@@ -1,20 +1,30 @@
+import { error } from 'console'
 import fetch from 'node-fetch'
 import sleep from 'sleep'
 
 const limit = 999
 
 async function newRequest(url) {
-    const res = await fetch(url)
+    try {
+        const res = await fetch(url)
 
-    sleep.msleep(150)
+        // sleep.msleep(150)
 
-    console.log(`${url} -> ${res.status}`)
+        console.log(`${url} -> ${res.status} -> ${res.statusText}`)
 
-    if (res.status == 200 || res.status == 201) {
+        // console.log(res.message.code)
 
-        console.log(`res -> ${url}`)
-        console.log(`res - ${res.status}`)
+        if (res.status == 200 || res.status == 201) {
 
+            console.log(`res -> ${url}`)
+            console.log(`res - ${res.status}`)
+
+        }
+
+    } catch (error) {
+        if (error.name === 'AbortError') {
+            console.log('request was aborted');
+        }
     }
 }
 
