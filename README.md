@@ -29,3 +29,7 @@ npm i
 npm start
 
 ```
+
+# Future Features
+
+- Workers to run several requests and several numbers of letters at the same time.
