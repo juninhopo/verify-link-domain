@@ -18,7 +18,7 @@ async function newRequest(url) {
         const res = await fetch(url)
 
         // Time caso precisar
-        // sleep.msleep(300)
+        sleep.msleep(250)
 
         console.log(`${url} -> ${res.status} -> ${res.statusText}`)
 
@@ -54,8 +54,8 @@ async function newRequest(url) {
 function generateWords(sizeWord) {
     var wordRandom = '';
 
-    // var caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    var caracteres = 'abcdefghijklmnopqrstuvwxyz';
+    var caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    // var caracteres = 'abcdefghijklmnopqrstuvwxyz';
 
     for (var i = 0; i < sizeWord; i++) {
         wordRandom += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
@@ -72,7 +72,7 @@ for (let i = 0; i < limit; i++) {
     // Seleciona quantas letra quer no subdomínio
     const subdomain = generateWords(5)
 
-    const urlTarget = 'https://www.okatech.dev/'
+    const urlTarget = 'https://bit.ly/'
 
     // Para teste
     const url = `${urlTarget}${subdomain}`
